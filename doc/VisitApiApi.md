@@ -41,7 +41,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[FirebaseJwtBarer](../README.md#FirebaseJwtBarer)
 
 ### HTTP request headers
 
@@ -83,7 +83,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[FirebaseJwtBarer](../README.md#FirebaseJwtBarer)
 
 ### HTTP request headers
 

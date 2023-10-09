@@ -45,7 +45,13 @@ class VisitApiApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'Bearer',
+            'name': 'FirebaseJwtBarer',
+          },
+        ],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -118,7 +124,13 @@ _responseData = rawData == null ? null : deserialize<CreateVisitSucessResponse, 
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'Bearer',
+            'name': 'FirebaseJwtBarer',
+          },
+        ],
         ...?extra,
       },
       validateStatus: validateStatus,

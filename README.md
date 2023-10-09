@@ -79,7 +79,7 @@ Class | Method | HTTP request | Description
 Authentication schemes defined for the API:
 ### FirebaseJwtBarer
 
-- **Type**: HTTP Bearer Token authentication
+- **Type**: HTTP Bearer Token authentication (JWT)
 
 
 ## Author
