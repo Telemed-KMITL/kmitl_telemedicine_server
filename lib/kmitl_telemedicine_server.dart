@@ -8,7 +8,6 @@ export 'package:kmitl_telemedicine_server/src/auth/basic_auth.dart';
 export 'package:kmitl_telemedicine_server/src/auth/oauth.dart';
 
 
-export 'package:kmitl_telemedicine_server/src/api/server_api_api.dart';
+export 'package:kmitl_telemedicine_server/src/api/visit_api_api.dart';
 
-export 'package:kmitl_telemedicine_server/src/model/bad_request_body.dart';
 export 'package:kmitl_telemedicine_server/src/model/create_visit_sucess_response.dart';

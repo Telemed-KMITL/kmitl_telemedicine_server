@@ -1,4 +1,3 @@
-import 'package:kmitl_telemedicine_server/src/model/bad_request_body.dart';
 import 'package:kmitl_telemedicine_server/src/model/create_visit_sucess_response.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
@@ -19,8 +18,6 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return (valueString == 'true' || valueString == '1') as ReturnType;
         case 'double':
           return (value is double ? value : double.parse('$value')) as ReturnType;
-        case 'BadRequestBody':
-          return BadRequestBody.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'CreateVisitSucessResponse':
           return CreateVisitSucessResponse.fromJson(value as Map<String, dynamic>) as ReturnType;
         default:

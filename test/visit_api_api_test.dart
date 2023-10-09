@@ -2,13 +2,18 @@ import 'package:test/test.dart';
 import 'package:kmitl_telemedicine_server/kmitl_telemedicine_server.dart';
 
 
-/// tests for ServerApiApi
+/// tests for VisitApiApi
 void main() {
-  final instance = KmitlTelemedicineServer().getServerApiApi();
+  final instance = KmitlTelemedicineServer().getVisitApiApi();
 
-  group(ServerApiApi, () {
+  group(VisitApiApi, () {
     //Future<CreateVisitSucessResponse> createVisit() async
     test('test createVisit', () async {
+      // TODO
+    });
+
+    //Future finishVisit(String roomId, String waitingUserId) async
+    test('test finishVisit', () async {
       // TODO
     });
 

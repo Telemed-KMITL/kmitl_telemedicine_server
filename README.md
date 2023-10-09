@@ -47,13 +47,13 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:kmitl_telemedicine_server/kmitl_telemedicine_server.dart';
 
 
-final api = KmitlTelemedicineServer().getServerApiApi();
+final api = KmitlTelemedicineServer().getVisitApiApi();
 
 try {
     final response = await api.createVisit();
     print(response);
 } catch on DioException (e) {
-    print("Exception when calling ServerApiApi->createVisit: $e\n");
+    print("Exception when calling VisitApiApi->createVisit: $e\n");
 }
 
 ```
@@ -64,12 +64,12 @@ All URIs are relative to *http://blockchain.telemed.kmitl.ac.th/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*ServerApiApi*](doc/ServerApiApi.md) | [**createVisit**](doc/ServerApiApi.md#createvisit) | **POST** /createVisit | 
+[*VisitApiApi*](doc/VisitApiApi.md) | [**createVisit**](doc/VisitApiApi.md#createvisit) | **POST** /visits/create | 
+[*VisitApiApi*](doc/VisitApiApi.md) | [**finishVisit**](doc/VisitApiApi.md#finishvisit) | **POST** /visits/finish | 
 
 
 ## Documentation For Models
 
- - [BadRequestBody](doc/BadRequestBody.md)
  - [CreateVisitSucessResponse](doc/CreateVisitSucessResponse.md)
 
 
