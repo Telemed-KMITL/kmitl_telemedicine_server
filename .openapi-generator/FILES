@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 analysis_options.yaml
 build.yaml
@@ -16,5 +15,3 @@ lib/src/auth/oauth.dart
 lib/src/deserialize.dart
 lib/src/model/create_visit_sucess_response.dart
 pubspec.yaml
-test/create_visit_sucess_response_test.dart
-test/visit_api_api_test.dart
