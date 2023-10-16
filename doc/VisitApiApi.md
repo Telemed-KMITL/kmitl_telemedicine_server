@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **createVisit**
-> CreateVisitSucessResponse createVisit()
+> CreateVisitSuccessResponse createVisit()
 
 
 
@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CreateVisitSucessResponse**](CreateVisitSucessResponse.md)
+[**CreateVisitSuccessResponse**](CreateVisitSuccessResponse.md)
 
 ### Authorization
 

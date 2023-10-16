@@ -7,7 +7,7 @@ void main() {
   final instance = KmitlTelemedicineServer().getVisitApiApi();
 
   group(VisitApiApi, () {
-    //Future<CreateVisitSucessResponse> createVisit() async
+    //Future<CreateVisitSuccessResponse> createVisit() async
     test('test createVisit', () async {
       // TODO
     });

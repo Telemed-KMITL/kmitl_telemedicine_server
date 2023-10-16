@@ -1,0 +1,53 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'user.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'User',
+      json,
+      ($checkedConvert) {
+        final val = User(
+          firstName: $checkedConvert('firstName', (v) => v as String?),
+          lastName: $checkedConvert('lastName', (v) => v as String?),
+          HN: $checkedConvert('HN', (v) => v as String?),
+          status: $checkedConvert(
+              'status', (v) => $enumDecodeNullable(_$UserStatusEnumMap, v)),
+          role: $checkedConvert(
+              'role', (v) => $enumDecodeNullable(_$UserRoleEnumMap, v)),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$UserToJson(User instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('firstName', instance.firstName);
+  writeNotNull('lastName', instance.lastName);
+  writeNotNull('HN', instance.HN);
+  writeNotNull('status', _$UserStatusEnumMap[instance.status]);
+  writeNotNull('role', _$UserRoleEnumMap[instance.role]);
+  return val;
+}
+
+const _$UserStatusEnumMap = {
+  UserStatus.active: 'active',
+  UserStatus.inActive: 'inActive',
+};
+
+const _$UserRoleEnumMap = {
+  UserRole.patient: 'patient',
+  UserRole.doctor: 'doctor',
+  UserRole.nurse: 'nurse',
+  UserRole.admin: 'admin',
+};

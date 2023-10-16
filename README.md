@@ -47,13 +47,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:kmitl_telemedicine_server/kmitl_telemedicine_server.dart';
 
 
-final api = KmitlTelemedicineServer().getVisitApiApi();
+final api = KmitlTelemedicineServer().getUserApiApi();
+final CreateUserRequest createUserRequest = ; // CreateUserRequest | 
 
 try {
-    final response = await api.createVisit();
+    final response = await api.createUser(createUserRequest);
     print(response);
 } catch on DioException (e) {
-    print("Exception when calling VisitApiApi->createVisit: $e\n");
+    print("Exception when calling UserApiApi->createUser: $e\n");
 }
 
 ```
@@ -64,13 +65,26 @@ All URIs are relative to *http://blockchain.telemed.kmitl.ac.th/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+[*UserApiApi*](doc/UserApiApi.md) | [**createUser**](doc/UserApiApi.md#createuser) | **PUT** /users | 
+[*UserApiApi*](doc/UserApiApi.md) | [**getUserRole**](doc/UserApiApi.md#getuserrole) | **GET** /users/{userId}/role | 
+[*UserApiApi*](doc/UserApiApi.md) | [**registerPatientUser**](doc/UserApiApi.md#registerpatientuser) | **POST** /users/me/register | 
+[*UserApiApi*](doc/UserApiApi.md) | [**registerUser**](doc/UserApiApi.md#registeruser) | **POST** /users/{userId}/register | 
+[*UserApiApi*](doc/UserApiApi.md) | [**updatePatientUser**](doc/UserApiApi.md#updatepatientuser) | **PATCH** /users/me | 
+[*UserApiApi*](doc/UserApiApi.md) | [**updateUserRole**](doc/UserApiApi.md#updateuserrole) | **PATCH** /users/{userId}/role | 
 [*VisitApiApi*](doc/VisitApiApi.md) | [**createVisit**](doc/VisitApiApi.md#createvisit) | **POST** /visits/create | 
 [*VisitApiApi*](doc/VisitApiApi.md) | [**finishVisit**](doc/VisitApiApi.md#finishvisit) | **POST** /visits/finish | 
 
 
 ## Documentation For Models
 
- - [CreateVisitSucessResponse](doc/CreateVisitSucessResponse.md)
+ - [CreateUserRequest](doc/CreateUserRequest.md)
+ - [CreateVisitSuccessResponse](doc/CreateVisitSuccessResponse.md)
+ - [UpdatePatientUserSuccessResponse](doc/UpdatePatientUserSuccessResponse.md)
+ - [User](doc/User.md)
+ - [UserResponse](doc/UserResponse.md)
+ - [UserRole](doc/UserRole.md)
+ - [UserRoleResponse](doc/UserRoleResponse.md)
+ - [UserStatus](doc/UserStatus.md)
 
 
 ## Documentation For Authorization

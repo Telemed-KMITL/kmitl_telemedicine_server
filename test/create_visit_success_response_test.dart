@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:kmitl_telemedicine_server/kmitl_telemedicine_server.dart';
 
-// tests for CreateVisitSucessResponse
+// tests for CreateVisitSuccessResponse
 void main() {
-  final CreateVisitSucessResponse? instance = /* CreateVisitSucessResponse(...) */ null;
+  final CreateVisitSuccessResponse? instance = /* CreateVisitSuccessResponse(...) */ null;
   // TODO add properties to the entity
 
-  group(CreateVisitSucessResponse, () {
+  group(CreateVisitSuccessResponse, () {
     // String userId
     test('to test the property `userId`', () async {
       // TODO
@@ -14,11 +14,6 @@ void main() {
 
     // String visitId
     test('to test the property `visitId`', () async {
-      // TODO
-    });
-
-    // String status
-    test('to test the property `status`', () async {
       // TODO
     });
 

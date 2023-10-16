@@ -9,7 +9,7 @@ import 'dart:convert';
 import 'package:kmitl_telemedicine_server/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
-import 'package:kmitl_telemedicine_server/src/model/create_visit_sucess_response.dart';
+import 'package:kmitl_telemedicine_server/src/model/create_visit_success_response.dart';
 
 class VisitApiApi {
 
@@ -28,9 +28,9 @@ class VisitApiApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [CreateVisitSucessResponse] as data
+  /// Returns a [Future] containing a [Response] with a [CreateVisitSuccessResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CreateVisitSucessResponse>> createVisit({ 
+  Future<Response<CreateVisitSuccessResponse>> createVisit({ 
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -65,11 +65,11 @@ class VisitApiApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CreateVisitSucessResponse? _responseData;
+    CreateVisitSuccessResponse? _responseData;
 
     try {
 final rawData = _response.data;
-_responseData = rawData == null ? null : deserialize<CreateVisitSucessResponse, CreateVisitSucessResponse>(rawData, 'CreateVisitSucessResponse', growable: true);
+_responseData = rawData == null ? null : deserialize<CreateVisitSuccessResponse, CreateVisitSuccessResponse>(rawData, 'CreateVisitSuccessResponse', growable: true);
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -80,7 +80,7 @@ _responseData = rawData == null ? null : deserialize<CreateVisitSucessResponse, 
       );
     }
 
-    return Response<CreateVisitSucessResponse>(
+    return Response<CreateVisitSuccessResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
