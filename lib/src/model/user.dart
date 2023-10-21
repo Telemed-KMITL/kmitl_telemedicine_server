@@ -20,38 +20,38 @@ class User {
   /// Returns a new [User] instance.
   User({
 
-     this.firstName,
+    required  this.firstName,
 
-     this.lastName,
+    required  this.lastName,
 
      this.HN,
 
-     this.status,
+    required  this.status,
 
-     this.role,
+    required  this.role,
   });
 
   @JsonKey(
     
     name: r'firstName',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final String? firstName;
+  final String firstName;
 
 
 
   @JsonKey(
     
     name: r'lastName',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final String? lastName;
+  final String lastName;
 
 
 
@@ -70,24 +70,24 @@ class User {
   @JsonKey(
     
     name: r'status',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final UserStatus? status;
+  final UserStatus status;
 
 
 
   @JsonKey(
     
     name: r'role',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final UserRole? role;
+  final UserRole role;
 
 
 
@@ -101,8 +101,8 @@ class User {
 
   @override
   int get hashCode =>
-    (firstName == null ? 0 : firstName.hashCode) +
-    (lastName == null ? 0 : lastName.hashCode) +
+    firstName.hashCode +
+    lastName.hashCode +
     (HN == null ? 0 : HN.hashCode) +
     status.hashCode +
     role.hashCode;

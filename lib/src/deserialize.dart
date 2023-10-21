@@ -1,9 +1,8 @@
 import 'package:kmitl_telemedicine_server/src/model/create_user_request.dart';
 import 'package:kmitl_telemedicine_server/src/model/create_visit_success_response.dart';
-import 'package:kmitl_telemedicine_server/src/model/update_patient_user_success_response.dart';
+import 'package:kmitl_telemedicine_server/src/model/problem_details.dart';
 import 'package:kmitl_telemedicine_server/src/model/user.dart';
-import 'package:kmitl_telemedicine_server/src/model/user_response.dart';
-import 'package:kmitl_telemedicine_server/src/model/user_role_response.dart';
+import 'package:kmitl_telemedicine_server/src/model/user_register_myself_request.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
@@ -27,17 +26,15 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return CreateUserRequest.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'CreateVisitSuccessResponse':
           return CreateVisitSuccessResponse.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'UpdatePatientUserSuccessResponse':
-          return UpdatePatientUserSuccessResponse.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'ProblemDetails':
+          return ProblemDetails.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'User':
           return User.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'UserResponse':
-          return UserResponse.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'UserRegisterMyselfRequest':
+          return UserRegisterMyselfRequest.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'UserRole':
           
           
-        case 'UserRoleResponse':
-          return UserRoleResponse.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'UserStatus':
           
           

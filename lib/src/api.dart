@@ -7,8 +7,8 @@ import 'package:kmitl_telemedicine_server/src/auth/api_key_auth.dart';
 import 'package:kmitl_telemedicine_server/src/auth/basic_auth.dart';
 import 'package:kmitl_telemedicine_server/src/auth/bearer_auth.dart';
 import 'package:kmitl_telemedicine_server/src/auth/oauth.dart';
-import 'package:kmitl_telemedicine_server/src/api/user_api_api.dart';
-import 'package:kmitl_telemedicine_server/src/api/visit_api_api.dart';
+import 'package:kmitl_telemedicine_server/src/api/users_api.dart';
+import 'package:kmitl_telemedicine_server/src/api/visits_api.dart';
 
 class KmitlTelemedicineServer {
   static const String basePath = r'http://blockchain.telemed.kmitl.ac.th/api';
@@ -61,15 +61,15 @@ class KmitlTelemedicineServer {
     }
   }
 
-  /// Get UserApiApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get UsersApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  UserApiApi getUserApiApi() {
-    return UserApiApi(dio);
+  UsersApi getUsersApi() {
+    return UsersApi(dio);
   }
 
-  /// Get VisitApiApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get VisitsApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  VisitApiApi getVisitApiApi() {
-    return VisitApiApi(dio);
+  VisitsApi getVisitsApi() {
+    return VisitsApi(dio);
   }
 }

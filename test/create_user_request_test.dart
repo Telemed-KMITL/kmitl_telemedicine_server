@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // bool emailVerified
+    // bool emailVerified (default value: false)
     test('to test the property `emailVerified`', () async {
       // TODO
     });

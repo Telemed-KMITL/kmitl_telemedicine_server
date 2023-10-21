@@ -47,14 +47,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:kmitl_telemedicine_server/kmitl_telemedicine_server.dart';
 
 
-final api = KmitlTelemedicineServer().getUserApiApi();
+final api = KmitlTelemedicineServer().getUsersApi();
 final CreateUserRequest createUserRequest = ; // CreateUserRequest | 
 
 try {
-    final response = await api.createUser(createUserRequest);
+    final response = await api.usersPost(createUserRequest);
     print(response);
 } catch on DioException (e) {
-    print("Exception when calling UserApiApi->createUser: $e\n");
+    print("Exception when calling UsersApi->usersPost: $e\n");
 }
 
 ```
@@ -65,25 +65,22 @@ All URIs are relative to *http://blockchain.telemed.kmitl.ac.th/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*UserApiApi*](doc/UserApiApi.md) | [**createUser**](doc/UserApiApi.md#createuser) | **PUT** /users | 
-[*UserApiApi*](doc/UserApiApi.md) | [**getUserRole**](doc/UserApiApi.md#getuserrole) | **GET** /users/{userId}/role | 
-[*UserApiApi*](doc/UserApiApi.md) | [**registerPatientUser**](doc/UserApiApi.md#registerpatientuser) | **POST** /users/me/register | 
-[*UserApiApi*](doc/UserApiApi.md) | [**registerUser**](doc/UserApiApi.md#registeruser) | **POST** /users/{userId}/register | 
-[*UserApiApi*](doc/UserApiApi.md) | [**updatePatientUser**](doc/UserApiApi.md#updatepatientuser) | **PATCH** /users/me | 
-[*UserApiApi*](doc/UserApiApi.md) | [**updateUserRole**](doc/UserApiApi.md#updateuserrole) | **PATCH** /users/{userId}/role | 
-[*VisitApiApi*](doc/VisitApiApi.md) | [**createVisit**](doc/VisitApiApi.md#createvisit) | **POST** /visits/create | 
-[*VisitApiApi*](doc/VisitApiApi.md) | [**finishVisit**](doc/VisitApiApi.md#finishvisit) | **POST** /visits/finish | 
+[*UsersApi*](doc/UsersApi.md) | [**usersPost**](doc/UsersApi.md#userspost) | **POST** /Users | 
+[*UsersApi*](doc/UsersApi.md) | [**usersRegisterEmailPost**](doc/UsersApi.md#usersregisteremailpost) | **POST** /Users/register/email | 
+[*UsersApi*](doc/UsersApi.md) | [**usersRegisterMePost**](doc/UsersApi.md#usersregistermepost) | **POST** /Users/register/me | 
+[*UsersApi*](doc/UsersApi.md) | [**usersRegisterUseridPost**](doc/UsersApi.md#usersregisteruseridpost) | **POST** /Users/register/userid | 
+[*UsersApi*](doc/UsersApi.md) | [**usersUseridDelete**](doc/UsersApi.md#usersuseriddelete) | **DELETE** /Users/{userid} | 
+[*VisitsApi*](doc/VisitsApi.md) | [**visitsPost**](doc/VisitsApi.md#visitspost) | **POST** /Visits | 
 
 
 ## Documentation For Models
 
  - [CreateUserRequest](doc/CreateUserRequest.md)
  - [CreateVisitSuccessResponse](doc/CreateVisitSuccessResponse.md)
- - [UpdatePatientUserSuccessResponse](doc/UpdatePatientUserSuccessResponse.md)
+ - [ProblemDetails](doc/ProblemDetails.md)
  - [User](doc/User.md)
- - [UserResponse](doc/UserResponse.md)
+ - [UserRegisterMyselfRequest](doc/UserRegisterMyselfRequest.md)
  - [UserRole](doc/UserRole.md)
- - [UserRoleResponse](doc/UserRoleResponse.md)
  - [UserStatus](doc/UserStatus.md)
 
 

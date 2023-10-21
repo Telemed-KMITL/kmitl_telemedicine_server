@@ -10,21 +10,28 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
       'User',
       json,
       ($checkedConvert) {
+        $checkKeys(
+          json,
+          requiredKeys: const ['firstName', 'lastName', 'status', 'role'],
+        );
         final val = User(
-          firstName: $checkedConvert('firstName', (v) => v as String?),
-          lastName: $checkedConvert('lastName', (v) => v as String?),
+          firstName: $checkedConvert('firstName', (v) => v as String),
+          lastName: $checkedConvert('lastName', (v) => v as String),
           HN: $checkedConvert('HN', (v) => v as String?),
           status: $checkedConvert(
-              'status', (v) => $enumDecodeNullable(_$UserStatusEnumMap, v)),
-          role: $checkedConvert(
-              'role', (v) => $enumDecodeNullable(_$UserRoleEnumMap, v)),
+              'status', (v) => $enumDecode(_$UserStatusEnumMap, v)),
+          role:
+              $checkedConvert('role', (v) => $enumDecode(_$UserRoleEnumMap, v)),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$UserToJson(User instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'firstName': instance.firstName,
+    'lastName': instance.lastName,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -32,11 +39,9 @@ Map<String, dynamic> _$UserToJson(User instance) {
     }
   }
 
-  writeNotNull('firstName', instance.firstName);
-  writeNotNull('lastName', instance.lastName);
   writeNotNull('HN', instance.HN);
-  writeNotNull('status', _$UserStatusEnumMap[instance.status]);
-  writeNotNull('role', _$UserRoleEnumMap[instance.role]);
+  val['status'] = _$UserStatusEnumMap[instance.status]!;
+  val['role'] = _$UserRoleEnumMap[instance.role]!;
   return val;
 }
 

@@ -8,8 +8,9 @@ import 'package:kmitl_telemedicine_server/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** |  | [optional] 
-**visitId** | **String** |  | [optional] 
+**userId** | **String** |  | 
+**visitId** | **String** |  | 
+**created** | **bool** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

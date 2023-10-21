@@ -19,41 +19,41 @@ class CreateUserRequest {
   /// Returns a new [CreateUserRequest] instance.
   CreateUserRequest({
 
-     this.email,
+    required  this.email,
 
-     this.password,
+    required  this.password,
 
-     this.emailVerified,
+     this.emailVerified = false,
 
-     this.user,
+    required  this.user,
   });
 
   @JsonKey(
     
     name: r'email',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final String? email;
+  final String email;
 
 
 
   @JsonKey(
     
     name: r'password',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final String? password;
+  final String password;
 
 
 
   @JsonKey(
-    
+    defaultValue: false,
     name: r'emailVerified',
     required: false,
     includeIfNull: false
@@ -67,12 +67,12 @@ class CreateUserRequest {
   @JsonKey(
     
     name: r'user',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final User? user;
+  final User user;
 
 
 
@@ -85,8 +85,8 @@ class CreateUserRequest {
 
   @override
   int get hashCode =>
-    (email == null ? 0 : email.hashCode) +
-    (password == null ? 0 : password.hashCode) +
+    email.hashCode +
+    password.hashCode +
     (emailVerified == null ? 0 : emailVerified.hashCode) +
     user.hashCode;
 

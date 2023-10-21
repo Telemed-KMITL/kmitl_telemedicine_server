@@ -12,25 +12,23 @@ CreateVisitSuccessResponse _$CreateVisitSuccessResponseFromJson(
       'CreateVisitSuccessResponse',
       json,
       ($checkedConvert) {
+        $checkKeys(
+          json,
+          requiredKeys: const ['userId', 'visitId', 'created'],
+        );
         final val = CreateVisitSuccessResponse(
-          userId: $checkedConvert('userId', (v) => v as String?),
-          visitId: $checkedConvert('visitId', (v) => v as String?),
+          userId: $checkedConvert('userId', (v) => v as String),
+          visitId: $checkedConvert('visitId', (v) => v as String),
+          created: $checkedConvert('created', (v) => v as bool),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$CreateVisitSuccessResponseToJson(
-    CreateVisitSuccessResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userId', instance.userId);
-  writeNotNull('visitId', instance.visitId);
-  return val;
-}
+        CreateVisitSuccessResponse instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'visitId': instance.visitId,
+      'created': instance.created,
+    };

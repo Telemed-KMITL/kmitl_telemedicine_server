@@ -10,17 +10,19 @@ import 'package:kmitl_telemedicine_server/src/deserialize.dart';
 import 'package:dio/dio.dart';
 
 import 'package:kmitl_telemedicine_server/src/model/create_visit_success_response.dart';
+import 'package:kmitl_telemedicine_server/src/model/problem_details.dart';
 
-class VisitApiApi {
+class VisitsApi {
 
   final Dio _dio;
 
-  const VisitApiApi(this._dio);
+  const VisitsApi(this._dio);
 
-  /// createVisit
+  /// visitsPost
   /// 
   ///
   /// Parameters:
+  /// * [ignoreUnfinishedVisits] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -30,7 +32,8 @@ class VisitApiApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CreateVisitSuccessResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CreateVisitSuccessResponse>> createVisit({ 
+  Future<Response<CreateVisitSuccessResponse>> visitsPost({ 
+    bool? ignoreUnfinishedVisits = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -38,7 +41,7 @@ class VisitApiApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/visits/create';
+    final _path = r'/Visits';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -57,9 +60,14 @@ class VisitApiApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (ignoreUnfinishedVisits != null) r'ignoreUnfinishedVisits': ignoreUnfinishedVisits,
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -90,67 +98,6 @@ _responseData = rawData == null ? null : deserialize<CreateVisitSuccessResponse,
       statusMessage: _response.statusMessage,
       extra: _response.extra,
     );
-  }
-
-  /// finishVisit
-  /// 
-  ///
-  /// Parameters:
-  /// * [roomId] 
-  /// * [waitingUserId] 
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future]
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<void>> finishVisit({ 
-    required String roomId,
-    required String waitingUserId,
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/visits/finish';
-    final _options = Options(
-      method: r'POST',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'FirebaseJwtBarer',
-          },
-        ],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-    );
-
-    final _queryParameters = <String, dynamic>{
-      r'roomId': roomId,
-      r'waitingUserId': waitingUserId,
-    };
-
-    final _response = await _dio.request<Object>(
-      _path,
-      options: _options,
-      queryParameters: _queryParameters,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    return _response;
   }
 
 }

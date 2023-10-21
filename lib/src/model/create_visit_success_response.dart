@@ -18,44 +18,60 @@ class CreateVisitSuccessResponse {
   /// Returns a new [CreateVisitSuccessResponse] instance.
   CreateVisitSuccessResponse({
 
-     this.userId,
+    required  this.userId,
 
-     this.visitId,
+    required  this.visitId,
+
+    required  this.created,
   });
 
   @JsonKey(
     
     name: r'userId',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final String? userId;
+  final String userId;
 
 
 
   @JsonKey(
     
     name: r'visitId',
-    required: false,
+    required: true,
     includeIfNull: false
   )
 
 
-  final String? visitId;
+  final String visitId;
+
+
+
+  @JsonKey(
+    
+    name: r'created',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool created;
 
 
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CreateVisitSuccessResponse &&
      other.userId == userId &&
-     other.visitId == visitId;
+     other.visitId == visitId &&
+     other.created == created;
 
   @override
   int get hashCode =>
-    (userId == null ? 0 : userId.hashCode) +
-    (visitId == null ? 0 : visitId.hashCode);
+    userId.hashCode +
+    visitId.hashCode +
+    created.hashCode;
 
   factory CreateVisitSuccessResponse.fromJson(Map<String, dynamic> json) => _$CreateVisitSuccessResponseFromJson(json);
 
